@@ -1,0 +1,19 @@
+{
+   theme: {
+      "blockStyles" : {
+         "list_blocks": {
+            "colourPrimary": "#4a148c",
+            "colourSecondary":"#AD7BE9",
+            "colourTertiary":"#CDB6E9"
+         }
+      },
+      "categoryStyles" : {
+         "list_category": {
+            "colour": "#4a148c"
+         }
+      },
+      "componentStyles" : {
+         "workspaceBackgroundColour": "#1e1e1e"
+      }
+   }
+}
