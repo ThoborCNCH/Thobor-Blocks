@@ -1,8 +1,27 @@
 import Blockly from 'blockly';
 import toolbox from './blockly/toolbox.js'
 import {javascriptGenerator} from 'blockly/javascript';
- 
-const workspace = Blockly.inject(
+import {addChangeYblock} from './blockly/blocks/changeY.js';
+import {addChangeXblock} from './blockly/blocks/changeX.js';
+import {addSetYblock}    from './blockly/blocks/setY.js';
+import {addSetXblock}    from './blockly/blocks/setX.js';
+
+const screen = document.getElementById("screen");
+const robot  = document.getElementById("robot");
+
+let robotX = screen.offsetWidth  / 2 - robot.offsetWidth  / 2;
+let robotY = screen.offsetHeight / 2 - robot.offsetHeight / 2;
+
+robot.style.bottom = robotY + 'px';
+robot.style.left   = robotX + 'px';
+
+addChangeYblock();
+addChangeXblock();
+addSetYblock();
+addSetXblock();
+
+const workspace = Blockly.inject
+(
   'blocklyDiv',
   {
     toolbox: toolbox,
@@ -10,45 +29,53 @@ const workspace = Blockly.inject(
   }
 );
 
+
 javascriptGenerator.addReservedWords('code');
-javascriptGenerator.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
 javascriptGenerator.addReservedWords('highlightBlock');
 window.LoopTrap = 1000;
 javascriptGenerator.INFINITE_LOOP_TRAP = 'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
-var code = javascriptGenerator.workspaceToCode(workspace);
-var myInterpreter = new Interpreter(code, initApi);
+// javascriptGenerator.STATEMENT_PREFIX = 'workspace.highlightBlock(%1);\n';
+
 
 const runCodeButton = document.getElementById("run-code");
-runCodeButton.addEventListener("click", () => {
-  myInterpreter.run();
-  // try {
-  //   eval(code);
-  // } catch (e) {
-  //   alert(e);
-  // }
+runCodeButton.addEventListener("click", () => 
+{
+    var code = javascriptGenerator.workspaceToCode(workspace);
+    // TODO: make the interpreter work
+    // var myInterpreter = new Interpreter(code, initApi);
+    try {
+      eval(code);
+      // myInterpreter.run();
+    } catch (e) {
+      alert(e);
+    }
 });
 
-function highlightBlock(id) {
-  workspace.highlightBlock(id);
-}
 
-function initApi(interpreter, globalObject) {
-  // Add an API function for the alert() block.
-  var alertWrapper = function(text) {
+function initApi(interpreter, globalObject) 
+{
+  var wrapper = function(text) {
     return alert(arguments.length ? text : '');
   };
-  var highlightWrapper = function(id) {
+
+  interpreter.setProperty(globalObject, 'alert',
+    interpreter.createNativeFunction(wrapper));
+
+  ////////////
+
+  var wrapper = function(id) {
     return workspace.highlightBlock(id);
   };
-  interpreter.setProperty(globalObject, 'alert',
-      interpreter.createNativeFunction(wrapper));
-  interpreter.setProperty(globalObject, 'highlightBlock',
-      interpreter.createNativeFunction(wrapper));
 
-  // Add an API function for the prompt() block.
-  wrapper = function(text) {
+  interpreter.setProperty(globalObject, 'highlightBlock',
+    interpreter.createNativeFunction(wrapper));
+
+  ///////////
+
+  var wrapper = function(text) {
     return prompt(text);
   };
+
   interpreter.setProperty(globalObject, 'prompt',
-      interpreter.createNativeFunction(wrapper));
+    interpreter.createNativeFunction(wrapper));
 }

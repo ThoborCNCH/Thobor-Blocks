@@ -1,4 +1,4 @@
- const toolbox = {
+const toolbox = {
   "kind": "flyoutToolbox",
   "contents": [
     {
@@ -29,7 +29,23 @@
       "kind": "block",
       "type": "text_print"
     },
+    {
+      "kind": "block",
+      "type": "change_y"
+    },
+    {
+      "kind": "block",
+      "type": "change_x"
+    },
+    {
+      "kind": "block",
+      "type": "set_y"
+    },
+    {
+      "kind": "block",
+      "type": "set_x"
+    }
   ]
 };
 
- export default toolbox;
+export default toolbox;
