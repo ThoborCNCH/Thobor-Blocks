@@ -12,6 +12,8 @@
     "vite": "^5.0.0"
   },
   "dependencies": {
+    "@blockly/fixed-edges": "^4.0.9",
+    "@blockly/plugin-scroll-options": "^5.0.8",
     "blockly": "^10.2.2"
   }
 }

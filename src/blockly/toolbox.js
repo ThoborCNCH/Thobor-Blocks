@@ -3,6 +3,30 @@ const toolbox = {
   "contents": [
     {
       "kind": "block",
+      "type": "change_y"
+    },
+    {
+      "kind": "block",
+      "type": "change_x"
+    },
+    {
+      "kind": "block",
+      "type": "set_y"
+    },
+    {
+      "kind": "block",
+      "type": "set_x"
+    },
+    {
+      "kind": "block",
+      "type": "turn"
+    },
+    {
+      "kind": "block",
+      "type": "forward"
+    },
+    {
+      "kind": "block",
       "type": "controls_if"
     },
     {
@@ -21,30 +45,6 @@ const toolbox = {
       "kind": "block",
       "type": "math_arithmetic"
     },
-    {
-      "kind": "block",
-      "type": "text"
-    },
-    {
-      "kind": "block",
-      "type": "text_print"
-    },
-    {
-      "kind": "block",
-      "type": "change_y"
-    },
-    {
-      "kind": "block",
-      "type": "change_x"
-    },
-    {
-      "kind": "block",
-      "type": "set_y"
-    },
-    {
-      "kind": "block",
-      "type": "set_x"
-    }
   ]
 };
 

@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@blockly/fixed-edges@^4.0.9":
+  version "4.0.9"
+  resolved "https://registry.yarnpkg.com/@blockly/fixed-edges/-/fixed-edges-4.0.9.tgz#9fa2cbf502abbf5e3301b8d0ed5dc5c454a524ce"
+  integrity sha512-YvZtaP5iIgIBn8a8yRn70ZJfrUB0lrMBoAXoJyWbDkD4ZRoHHzp3GBuar8QE65VjUv3up4172yPKNWgvliUiQQ==
+
+"@blockly/plugin-scroll-options@^5.0.8":
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/@blockly/plugin-scroll-options/-/plugin-scroll-options-5.0.8.tgz#a6e7feb9758a90a9ec7fd6ae4af5691da191ed33"
+  integrity sha512-Wn8GlenakfFnTAszyG4nj7qf8/oQLJgCy62rqDrpaq+bPEcoGaOGQvPDGJHlQh6PFEog+HSyODRf8truYqBD+w==
+
 "@esbuild/android-arm64@0.19.8":
   version "0.19.8"
   resolved "https://registry.yarnpkg.com/@esbuild/android-arm64/-/android-arm64-0.19.8.tgz#fb7130103835b6d43ea499c3f30cfb2b2ed58456"
