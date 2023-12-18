@@ -16,12 +16,14 @@ import {addWaitBlock}    from './blockly/blocks/wait.js';
 const screen = document.getElementById("screen");
 const robot  = document.getElementById("robot");
 
+const pixelsPerUnit = screen.offsetWidth / 6 / 24;
+
 let robotX = screen.offsetWidth  / 100;
 let robotY = screen.offsetHeight / 100 * 68;
 let robotTurn = 0;
 
-robot.style.bottom = robotY + 'px';
-robot.style.left   = robotX + 'px';
+robot.style.bottom = robotY * pixelsPerUnit + 'px';
+robot.style.left   = robotX * pixelsPerUnit + 'px';
 robot.style.transform = 'rotate(' + robotTurn + 90 + 'deg)';
 
 addChangeYblock();
@@ -67,12 +69,10 @@ const runCodeButton = document.getElementById("run-code");
 runCodeButton.addEventListener("click", async () => 
 {
     try {
-      // executeBlocksSequentially();
       var code = javascriptGenerator.workspaceToCode(workspace);
       eval('(async function() {' + code + '})()');
     } catch (e) {
-      // alert(e);
-      console.log(e)
+      alert(e);
     }
 });
 
@@ -102,23 +102,4 @@ function initApi(interpreter, globalObject)
 
   interpreter.setProperty(globalObject, 'prompt',
     interpreter.createNativeFunction(wrapper));
-}
-
-function executeBlocksSequentially() {
-  var startingBlock = workspace.getTopBlocks()[0];
-
-  if (startingBlock) {
-    function executeBlock(block) {
-      if (block) {
-        var code = javascriptGenerator.blockToCode(block);
-        if (code) eval(code); 
-
-        setTimeout(function () {
-          executeBlock(block.getNextBlock()); 
-        }, 500); 
-      }
-    }
-
-    executeBlock(startingBlock.getNextBlock());
-  }
 }
