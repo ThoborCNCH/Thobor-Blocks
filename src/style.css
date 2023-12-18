@@ -16,12 +16,15 @@ body {
 }
 
 main {
-  background-color: whitesmoke;
-  border: 12px solid black;
-  border-radius: 25px;
+  /* background-color: whitesmoke; */
+  /* border: 12px solid black; */
+  /* border-radius: 25px; */
+  /**/
+  /* height: 40vw; */
+  /* width: 80vw; */
 
-  height: 40vw;
-  width: 80vw;
+  height: 100vh;
+  width: 100vw;
 
   display: flex;
   justify-content: space-evenly;
@@ -32,7 +35,7 @@ main .working-divs {
   width: 45%;
   height: 90%;
 
-  border: 3px solid black;
+  border: 8px solid whitesmoke;
   border-radius: 25px;
 
   overflow: hidden;
@@ -44,36 +47,40 @@ main .working-divs {
 
   background-image: url('../public/icons/field.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 #robot {
   width:  12.5%;
   height: 12.5%;
 
-  background-color: green;
+  background-image: url(../public/icons/Robot.svg);
+  background-size: cover;
   position: absolute;
 
-  border-right: 5px solid black;
+  transition: all 0.35s ease;
 }
 
 #run-code {
   position: absolute;
-  bottom: 3px;
-  left: 3px;
+  bottom: 6px;
+  left:   6px;
 
-  height: 35px;
+  height: 40px;
   /* width:  70px; */
 
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 3px;
+  font-size: 1.2em;
   
   color: darkgreen;
   background: whitesmoke;
   border: 3px solid black;
   border-bottom: 0;
-  border-radius: 25px;
+  border-radius: 50px;
   padding: 0 2px;
 }
 

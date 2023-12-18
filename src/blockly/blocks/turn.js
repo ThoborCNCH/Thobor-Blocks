@@ -9,7 +9,7 @@ function addTurnBlock()
         .appendField("Turn by ")
         .appendField(new Blockly.FieldTextInput("15"), "turn");
       this.setInputsInline(true);
-      this.setPreviousStatement(true, null);
+      this.setPreviousStatement(true);
       this.setNextStatement(true, null);
       this.setColour(160);
       this.setTooltip("Turn the robot by the given degrees");

@@ -3,6 +3,18 @@ const toolbox = {
   "contents": [
     {
       "kind": "block",
+      "type": "forward"
+    },
+    {
+      "kind": "block",
+      "type": "turn"
+    },
+    {
+      "kind": "block",
+      "type": "wait"
+    },
+    {
+      "kind": "block",
       "type": "change_y"
     },
     {
@@ -16,14 +28,6 @@ const toolbox = {
     {
       "kind": "block",
       "type": "set_x"
-    },
-    {
-      "kind": "block",
-      "type": "turn"
-    },
-    {
-      "kind": "block",
-      "type": "forward"
     },
     {
       "kind": "block",

@@ -8,7 +8,8 @@ function addStartBlock()
       this.appendDummyInput()
         .appendField("Start")
       this.setInputsInline(true);
-      this.setNextStatement(true, null);
+      // this.setNextStatement(true, null);
+      this.setNextStatement(true);
       this.setColour(240);
       this.setTooltip("Start the code");
       this.setHelpUrl("");
@@ -17,8 +18,7 @@ function addStartBlock()
   };
 
   javascriptGenerator.forBlock['start'] = function(block, generator) {
-    var code = ``;
-    return code;
+    return '';
   };
 }
 
