@@ -18,18 +18,19 @@ import {addWaitBlock}    from './blockly/blocks/wait.js';
 const screen = document.getElementById("screen");
 const robot  = document.getElementById("robot");
 
-const pixelsPerUnit = screen.offsetWidth / 6 / 24;
+const pixelsPerUnitWidth  = screen.offsetWidth  / 6 / 24;
+const pixelsPerUnitHeight = screen.offsetHeight / 6 / 24;
 
 let robotX = 1;
-let robotY = 24 * 4;
+let robotY = 24 * 4 + 1;
 let robotTurn = 0;
 
 function updateRobot() {
-  robot.style.bottom    = robotY * pixelsPerUnit + 'px';
-  robot.style.left      = robotX * pixelsPerUnit + 'px';
-  robot.style.transform = 'rotate(' + robotTurn + 90 + 'deg)';
+  robot.style.bottom    = robotY * pixelsPerUnitHeight + 'px';
+  robot.style.left      = robotX * pixelsPerUnitWidth  + 'px';
 }
 updateRobot();
+robot.style.transform = 'rotate(' + robotTurn + 90 + 'deg)';
 
 addChangeYblock();
 addChangeXblock();
@@ -58,7 +59,6 @@ const workspace = Blockly.inject
     },
   }
 );
-
 
 javascriptGenerator.addReservedWords('code');
 javascriptGenerator.addReservedWords('highlightBlock');

@@ -17,10 +17,10 @@ function addBackwardBlock()
     }
   };
 
-  javascriptGenerator.forBlock['forward'] = function(block, generator) {
+  javascriptGenerator.forBlock['backward'] = function(block, generator) {
     var distance = block.getFieldValue('backwards');
     var code = `
-      robotX -= Math.cos((robotTurn * Math.PI) / 180) * `  + distance + `
+      robotX -= Math.cos((robotTurn * Math.PI) / 180) *  ` + distance + `
       robotY -= Math.sin((robotTurn * Math.PI) / 180) * -` + distance + `
       updateRobot();
     `;

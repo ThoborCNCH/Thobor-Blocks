@@ -6,7 +6,7 @@ function addTurnLeftBlock()
   Blockly.Blocks['turnLeft'] = {
     init: function() {
       this.appendDummyInput()
-        .appendField("Turn by ")
+        .appendField("Turn Left by ")
         .appendField(new Blockly.FieldTextInput("15"), "turn");
       this.setInputsInline(true);
       this.setPreviousStatement(true);
@@ -18,7 +18,7 @@ function addTurnLeftBlock()
   };
 
   javascriptGenerator.forBlock['turnLeft'] = function(block, generator) {
-    var turn = block.getFieldValue('turnLeft');
+    var turn = block.getFieldValue('turn');
     var code = `
       robotTurn -= ` + turn + `;
       updateRobot();

@@ -6,7 +6,7 @@ function addTurnBlock()
   Blockly.Blocks['turn'] = {
     init: function() {
       this.appendDummyInput()
-        .appendField("Turn by ")
+        .appendField("Turn Right by ")
         .appendField(new Blockly.FieldTextInput("15"), "turn");
       this.setInputsInline(true);
       this.setPreviousStatement(true);
