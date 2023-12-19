@@ -9,8 +9,10 @@ import {addChangeXblock} from './blockly/blocks/changeX.js';
 import {addSetYblock}    from './blockly/blocks/setY.js';
 import {addSetXblock}    from './blockly/blocks/setX.js';
 import {addTurnBlock}    from './blockly/blocks/turn.js';
+import {addTurnLeftBlock}from './blockly/blocks/turnLeft.js';
 import {addForwardBlock} from './blockly/blocks/forward.js';
 import {addStartBlock}   from './blockly/blocks/start.js';
+import {addBackwardBlock}from './blockly/blocks/backward.js';
 import {addWaitBlock}    from './blockly/blocks/wait.js';
 
 const screen = document.getElementById("screen");
@@ -34,8 +36,10 @@ addChangeXblock();
 addSetYblock();
 addSetXblock();
 addTurnBlock();
+addTurnLeftBlock();
 addForwardBlock();
 addStartBlock();
+addBackwardBlock();
 addWaitBlock();
 
 FixedEdgesMetricsManager.setFixedEdges

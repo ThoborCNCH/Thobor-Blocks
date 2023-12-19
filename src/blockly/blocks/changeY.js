@@ -20,7 +20,7 @@ function addChangeYblock()
   javascriptGenerator.forBlock['change_y'] = function(block, generator) {
     var text_y = block.getFieldValue('y');
     var code = `
-      robotY += ` + text_y + `;
+      robotY += (` + text_y + `);
       updateRobot();
     `;
     return code;

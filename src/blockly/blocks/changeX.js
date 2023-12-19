@@ -20,7 +20,7 @@ function addChangeXblock()
   javascriptGenerator.forBlock['change_x'] = function(block, generator) {
     var text_x = block.getFieldValue('x');
     var code = `
-      robotX += ` + text_x + `;
+      robotX += (` + text_x + `);
       updateRobot();
     `;
     return code;
