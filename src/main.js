@@ -19,12 +19,15 @@ const robot  = document.getElementById("robot");
 const pixelsPerUnit = screen.offsetWidth / 6 / 24;
 
 let robotX = 1;
-let robotY = 24 * 4 + 3;
+let robotY = 24 * 4;
 let robotTurn = 0;
 
-robot.style.bottom = robotY * pixelsPerUnit + 'px';
-robot.style.left   = robotX * pixelsPerUnit + 'px';
-robot.style.transform = 'rotate(' + robotTurn + 90 + 'deg)';
+function updateRobot() {
+  robot.style.bottom    = robotY * pixelsPerUnit + 'px';
+  robot.style.left      = robotX * pixelsPerUnit + 'px';
+  robot.style.transform = 'rotate(' + robotTurn + 90 + 'deg)';
+}
+updateRobot();
 
 addChangeYblock();
 addChangeXblock();

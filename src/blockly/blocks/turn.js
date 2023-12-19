@@ -21,7 +21,7 @@ function addTurnBlock()
     var turn = block.getFieldValue('turn');
     var code = `
       robotTurn += ` + turn + `;
-      robot.style.transform = 'rotate(' + robotTurn + 'deg)';
+      updateRobot();
     `;
     return code;
   };

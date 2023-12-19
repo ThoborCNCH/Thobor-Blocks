@@ -21,7 +21,7 @@ function addSetYblock()
     var text_y = block.getFieldValue('y');
     var code = `
       robotY = ` + text_y + `;
-      robot.style.bottom = robotY + 'px';
+      updateRobot();
     `;
     return code;
   };

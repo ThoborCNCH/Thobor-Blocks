@@ -20,10 +20,9 @@ function addForwardBlock()
   javascriptGenerator.forBlock['forward'] = function(block, generator) {
     var distance = block.getFieldValue('forward');
     var code = `
-      robotX += Math.cos((robotTurn * Math.PI) / 180) * ` + distance + `
-      robot.style.left = robotX + 'px';
+      robotX += Math.cos((robotTurn * Math.PI) / 180) * `  + distance + `
       robotY += Math.sin((robotTurn * Math.PI) / 180) * -` + distance + `
-      robot.style.bottom = robotY + 'px';
+      updateRobot();
     `;
     return code;
   };

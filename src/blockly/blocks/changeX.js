@@ -21,7 +21,7 @@ function addChangeXblock()
     var text_x = block.getFieldValue('x');
     var code = `
       robotX += ` + text_x + `;
-      robot.style.left = robotX + 'px';
+      updateRobot();
     `;
     return code;
   };
