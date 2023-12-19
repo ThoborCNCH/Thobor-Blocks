@@ -68,7 +68,6 @@ main .working-divs {
   left:   6px;
 
   height: 40px;
-  /* width:  70px; */
 
   display: flex;
   justify-content: space-around;

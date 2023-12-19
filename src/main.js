@@ -18,8 +18,8 @@ const robot  = document.getElementById("robot");
 
 const pixelsPerUnit = screen.offsetWidth / 6 / 24;
 
-let robotX = screen.offsetWidth  / 100;
-let robotY = screen.offsetHeight / 100 * 68;
+let robotX = 1;
+let robotY = 24 * 4 + 3;
 let robotTurn = 0;
 
 robot.style.bottom = robotY * pixelsPerUnit + 'px';
