@@ -1,7 +1,7 @@
 import Blockly from 'blockly';
 import {javascriptGenerator} from 'blockly/javascript';
 
-function addBackwardsBlock() 
+function addBackwardBlock() 
 {
   Blockly.Blocks['backward'] = {
     init: function() {
@@ -28,4 +28,4 @@ function addBackwardsBlock()
   };
 }
 
-export {addBackwardsBlock};
+export {addBackwardBlock};
