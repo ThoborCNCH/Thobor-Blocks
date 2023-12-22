@@ -83,6 +83,12 @@ startBlock.setDeletable(false);
 const runCodeButton = document.getElementById("run-code");
 runCodeButton.addEventListener("click", async () => 
 {
+    robotX = 1;
+    robotY = 24 * 4 + 1;
+    robotTurn = 0;
+
+    updateRobot();
+
     try {
       var code = javascriptGenerator.workspaceToCode(workspace);
       eval('(async function() {' + code + '})()');
