@@ -25,8 +25,8 @@ main {
 }
 
 main .working-divs {
-  width: 45%;
-  height: 90%;
+  width:  43vw;
+  height: 43vw;
 
   border: 8px solid whitesmoke;
   border-radius: 25px;
@@ -80,3 +80,95 @@ main .working-divs {
   text-decoration: underline;
   cursor: pointer;
 }
+
+
+/*
+*
+* Daca cineva are chef sa puna toate nth-urile in js, go for it.
+* Daca nu, sper ca nu va trebui sa modifici astea niciodata
+*
+* */
+
+#axa-orizontala {
+  color: white;
+  padding-top:  3px;
+}
+
+.numar-axa-orizontala {
+  position: absolute;
+  padding-left: 5px;
+
+}
+
+.numar-axa-orizontala:nth-child(1) {
+  left: calc(100% / 6 * 0);
+}
+
+.numar-axa-orizontala:nth-child(2) {
+  left: calc(100% / 6 * 1);
+}
+
+.numar-axa-orizontala:nth-child(3) {
+  left: calc(100% / 6 * 2);
+}
+
+.numar-axa-orizontala:nth-child(4) {
+  left: calc(100% / 6 * 3);
+}
+
+.numar-axa-orizontala:nth-child(5) {
+  left: calc(100% / 6 * 4);
+}
+
+.numar-axa-orizontala:nth-child(6) {
+  left: calc(100% / 6 * 5);
+}
+
+#axa-verticala {
+  color: white;
+  padding-left: 5px;
+}
+
+.numar-axa-verticala {
+  position: absolute;
+  padding-top: 5px;
+
+}
+
+.numar-axa-verticala:nth-child(1) {
+  top: calc(100% / 6 * 0);
+}
+
+.numar-axa-verticala:nth-child(2) {
+  top: calc(100% / 6 * 1);
+}
+
+.numar-axa-verticala:nth-child(3) {
+  top: calc(100% / 6 * 2);
+}
+
+.numar-axa-verticala:nth-child(4) {
+  top: calc(100% / 6 * 3);
+}
+
+.numar-axa-verticala:nth-child(5) {
+  top: calc(100% / 6 * 4);
+}
+
+.numar-axa-verticala:nth-child(6) {
+  top: calc(100% / 6 * 5);
+}
+
+/***************************************/
+
+@media screen and (max-width: 700px) {
+  main {
+    flex-direction: column-reverse;
+  }
+
+  main .working-divs {
+    height: 45vh;
+    width:  45vh;
+  }
+}
+

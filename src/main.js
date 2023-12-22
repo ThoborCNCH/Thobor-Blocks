@@ -18,8 +18,8 @@ import {addWaitBlock}    from './blockly/blocks/wait.js';
 const screen = document.getElementById("screen");
 const robot  = document.getElementById("robot");
 
-const pixelsPerUnitWidth  = screen.offsetWidth  / 6 / 24;
-const pixelsPerUnitHeight = screen.offsetHeight / 6 / 24;
+let pixelsPerUnitWidth  = screen.offsetWidth  / 6 / 24;
+let pixelsPerUnitHeight = screen.offsetHeight / 6 / 24;
 
 let robotX = 1;
 let robotY = 24 * 4 + 1;
@@ -59,6 +59,14 @@ const workspace = Blockly.inject
     },
   }
 );
+
+window.onresize = function () {
+
+  pixelsPerUnitWidth  = screen.offsetWidth  / 6 / 24;
+  pixelsPerUnitHeight = screen.offsetHeight / 6 / 24;
+
+  updateRobot();
+}
 
 javascriptGenerator.addReservedWords('code');
 javascriptGenerator.addReservedWords('highlightBlock');
