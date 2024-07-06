@@ -4,16 +4,16 @@ import toolbox from './blockly/toolbox.js'
 import theme from './blockly/theme.js'
 import {javascriptGenerator} from 'blockly/javascript';
 
-import {addChangeYblock} from './blockly/blocks/changeY.js';
-import {addChangeXblock} from './blockly/blocks/changeX.js';
-import {addSetYblock}    from './blockly/blocks/setY.js';
-import {addSetXblock}    from './blockly/blocks/setX.js';
-import {addTurnBlock}    from './blockly/blocks/turn.js';
-import {addTurnLeftBlock}from './blockly/blocks/turnLeft.js';
-import {addForwardBlock} from './blockly/blocks/forward.js';
-import {addStartBlock}   from './blockly/blocks/start.js';
-import {addBackwardBlock}from './blockly/blocks/backward.js';
-import {addWaitBlock}    from './blockly/blocks/wait.js';
+import {addChangeYblock}  from './blockly/blocks/changeY.js';
+import {addChangeXblock}  from './blockly/blocks/changeX.js';
+import {addSetYblock}     from './blockly/blocks/setY.js';
+import {addSetXblock}     from './blockly/blocks/setX.js';
+import {addTurnRightBlock}from './blockly/blocks/turnRight.js';
+import {addTurnLeftBlock} from './blockly/blocks/turnLeft.js';
+import {addForwardBlock}  from './blockly/blocks/forward.js';
+import {addStartBlock}    from './blockly/blocks/start.js';
+import {addBackwardBlock} from './blockly/blocks/backward.js';
+import {addWaitBlock}     from './blockly/blocks/wait.js';
 
 const screen = document.getElementById("screen");
 const robot  = document.getElementById("robot");
@@ -28,15 +28,15 @@ let robotTurn = 0;
 function updateRobot() {
   robot.style.bottom    = robotY * pixelsPerUnitHeight + 'px';
   robot.style.left      = robotX * pixelsPerUnitWidth  + 'px';
+  robot.style.transform = 'rotate(' + (robotTurn + 90) + 'deg)';
 }
 updateRobot();
-robot.style.transform = 'rotate(' + robotTurn + 90 + 'deg)';
 
 addChangeYblock();
 addChangeXblock();
 addSetYblock();
 addSetXblock();
-addTurnBlock();
+addTurnRightBlock();
 addTurnLeftBlock();
 addForwardBlock();
 addStartBlock();
@@ -72,9 +72,10 @@ javascriptGenerator.addReservedWords('code');
 javascriptGenerator.addReservedWords('highlightBlock');
 window.LoopTrap = 1000;
 javascriptGenerator.INFINITE_LOOP_TRAP = 'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
+javascriptGenerator.init(workspace);
 
 
-var startBlock = workspace.newBlock('start');
+let startBlock = workspace.newBlock('start');
 startBlock.initSvg();
 startBlock.render();
 startBlock.moveBy(60, 40);
@@ -82,24 +83,25 @@ startBlock.setDeletable(false);
 
 const runCodeButton = document.getElementById("run-code");
 runCodeButton.addEventListener("click", async () => 
-{
+  {
     robotX = 1;
     robotY = 24 * 4 + 1;
     robotTurn = 0;
-
     updateRobot();
 
+    await new Promise(resolve => setTimeout(resolve, 350));
+
     try {
-      var code = javascriptGenerator.workspaceToCode(workspace);
+      let code = javascriptGenerator.blockToCode(workspace.getBlocksByType('start', false)[0]);
       eval('(async function() {' + code + '})()');
     } catch (e) {
       alert(e);
     }
-});
+  });
 
 function initApi(interpreter, globalObject) 
 {
-  var wrapper = function(text) {
+  let wrapper = function(text) {
     return alert(arguments.length ? text : '');
   };
 
@@ -108,7 +110,7 @@ function initApi(interpreter, globalObject)
 
   ////////////
 
-  var wrapper = function(id) {
+  wrapper = function(id) {
     return workspace.highlightBlock(id);
   };
 
@@ -117,7 +119,7 @@ function initApi(interpreter, globalObject)
 
   ///////////
 
-  var wrapper = function(text) {
+  wrapper = function(text) {
     return prompt(text);
   };
 

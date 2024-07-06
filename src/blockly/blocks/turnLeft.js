@@ -18,10 +18,11 @@ function addTurnLeftBlock()
   };
 
   javascriptGenerator.forBlock['turnLeft'] = function(block, generator) {
-    var turn = block.getFieldValue('turn');
-    var code = `
+    let turn = block.getFieldValue('turn');
+    let code = `
       robotTurn -= ` + turn + `;
-      robot.style.transform = 'rotate(' + (robotTurn + 90) + 'deg)';
+      updateRobot();
+      await new Promise(resolve => setTimeout(resolve, 350));
     `;
     return code;
   };

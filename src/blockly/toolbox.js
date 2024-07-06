@@ -11,7 +11,7 @@ const toolbox = {
     },
     {
       "kind": "block",
-      "type": "turn"
+      "type": "turnRight"
     },
     {
       "kind": "block",

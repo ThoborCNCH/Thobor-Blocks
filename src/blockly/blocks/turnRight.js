@@ -1,13 +1,13 @@
 import Blockly from 'blockly';
 import {javascriptGenerator} from 'blockly/javascript';
 
-function addTurnBlock() 
+function addTurnRightBlock() 
 {
-  Blockly.Blocks['turn'] = {
+  Blockly.Blocks['turnRight'] = {
     init: function() {
       this.appendDummyInput()
         .appendField("Turn Right by ")
-        .appendField(new Blockly.FieldTextInput("15"), "turn");
+        .appendField(new Blockly.FieldTextInput("15"), "turnRight");
       this.setInputsInline(true);
       this.setPreviousStatement(true);
       this.setNextStatement(true, null);
@@ -17,14 +17,15 @@ function addTurnBlock()
     }
   };
 
-  javascriptGenerator.forBlock['turn'] = function(block, generator) {
-    var turn = block.getFieldValue('turn');
-    var code = `
+  javascriptGenerator.forBlock['turnRight'] = function(block, generator) {
+    let turn = block.getFieldValue('turnRight');
+    let code = `
       robotTurn += ` + turn + `;
-      robot.style.transform = 'rotate(' + (robotTurn + 90) + 'deg)';
+      updateRobot();
+      await new Promise(resolve => setTimeout(resolve, 350));
     `;
     return code;
   };
 }
 
-export {addTurnBlock};
+export {addTurnRightBlock};

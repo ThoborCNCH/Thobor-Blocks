@@ -23,6 +23,7 @@ function addBackwardBlock()
       robotX -= Math.cos((robotTurn * Math.PI) / 180) *  ` + distance + `
       robotY -= Math.sin((robotTurn * Math.PI) / 180) * -` + distance + `
       updateRobot();
+      await new Promise(resolve => setTimeout(resolve, 350));
     `;
     return code;
   };

@@ -22,6 +22,7 @@ function addSetYblock()
     var code = `
       robotY = ` + text_y + `;
       updateRobot();
+      await new Promise(resolve => setTimeout(resolve, 350));
     `;
     return code;
   };

@@ -22,6 +22,7 @@ function addChangeXblock()
     var code = `
       robotX += (` + text_x + `);
       updateRobot();
+      await new Promise(resolve => setTimeout(resolve, 350));
     `;
     return code;
   };
