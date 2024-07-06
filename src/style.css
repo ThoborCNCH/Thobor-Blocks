@@ -38,7 +38,7 @@ main .working-divs {
   background-color: #333333;
   position: relative;
 
-  background-image: url('../public/icons/field.jpg');
+  background-image: url('/icons/field.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -48,7 +48,7 @@ main .working-divs {
   width:  12.5%;
   height: 12.5%;
 
-  background-image: url(../public/icons/Robot.svg);
+  background-image: url(/icons/Robot.svg);
   background-size: cover;
   position: absolute;
 
